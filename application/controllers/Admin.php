@@ -4,6 +4,7 @@ class Admin extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('User_model', 'user');
+        $this->load->model('Event_model', 'event');
     }
     public function index(){
         $data['title'] = 'Dashboard';
@@ -12,6 +13,8 @@ class Admin extends CI_Controller {
             redirect('auth');
         }
         $data['user'] = $this->user->getUserBySession($email);
+        $data['event'] = $this->event->getAllEvent();
+        // $data['id_event'] = $this->event->getAllEventById();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
