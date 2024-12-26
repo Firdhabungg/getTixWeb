@@ -8,6 +8,20 @@ class Event extends CI_Controller {
     }
     public function index(){
         $data['title'] = 'Event';
-        $this->event->getAllEvent();
+        $this->load->view('event/event', $data);
+    }
+    public function detail_event(){
+        $data['title'] = 'Detail Event';
+        $this->load->view('event/detail_event');
+    }
+    public function detail($id){
+        $data['title'] = 'Detail Event';
+        $data['id'] = $this->event->getAllEventById($id);
+        $this->load->view('admin/index', $data);
+    }
+    public function hapus($id){
+        $this->event->hapusDataEvent($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil dihapus</div>');
+        redirect('admin');
     }
 }

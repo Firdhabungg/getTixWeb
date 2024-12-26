@@ -7,4 +7,7 @@ class Event_model extends CI_Model {
     public function getAllEventById($id){
         return $this->db->get_where('event', ['id_event' => $id])->row_array();
     }
+    public function hapusDataEvent($id){
+        $this->db->delete('event',['id_event' => $id]);
+    }
 }

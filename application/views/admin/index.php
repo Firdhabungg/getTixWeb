@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            
+            <?= $this->session->flashdata('message'); ?>
             <caption>List event</caption>
             <table class="table table-hover rounded-lg shadow-lg striped">
                 <thead class="bg-gradient-primary text-white">
@@ -48,9 +48,9 @@
                     <td><?= $e['nama_event']; ?></td>
                     <td><?= $e['kategori']; ?></td>
                     <td>
-                        <a href="#" class="badge badge-success" data-toggle="modal" data-target="#modalDetail">Detail</a>
-                        <a href="#" class="badge badge-warning" data-toggle="modal" data-target="#modalEdit">Edit</a>
-                        <a href="#" class="badge badge-danger" data-toggle="modal" data-target="#modalHapus">Delete</a>
+                        <a href="<?= base_url(); ?>event/detail/<?= $e['id_event']; ?>" class="badge badge-success" data-toggle="modal" data-target="#modalDetail">Detail</a>
+                        <a href="" class="badge badge-warning" data-toggle="modal" data-target="#modalEdit">Edit</a>
+                        <a href="<?= base_url(); ?>event/hapus/<?= $e['id_event']; ?>" class="badge badge-danger" data-toggle="modal" data-target="#modalHapus">Delete</a>
                     </td>
                     </tr>
                     <?php endforeach; ?>
@@ -61,40 +61,30 @@
     <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
-<!-- modal detail -->
 
+<!-- modal detail -->
 <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalDetailLabel">Detail Event</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content rounded">
+        <div class="modal-header bg-primary">
+            <h5 class="modal-title text-light" id="modalDetailLabel">Nama Event</h5>
+            <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button>
+            </button>
+        </div>
+        <div class="modal-body ">
+            <div class="card" class="w-100">
+                <img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="card-img-top" alt="...">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fas fa-map-marker-alt"></i></li>
+                    <li class="list-group-item"><i class="fas fa-calendar-check"></i></li>
+                </ul>
+                <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
             </div>
-            <form action="" method="">
-                <div class="modal-body">
-                <div class="form-group">
-                    <label for="nama_event">Nama Event</label>
-                    <input type="text" class="form-control" id="nama_event" name="nama_event">
-                    <label for="waktu">Waktu Event</label>
-                    <input type="text" class="form-control" id="waktu" name="waktu">
-                    <label for="lokasi">Lokasi Event</label>
-                    <input type="text" class="form-control" id="lokasi" name="lokasi">
-                    <label for="deskripsi">Deskripsi Event</label>
-                    <input type="text" class="form-control" id="deskripsi" name="deskripsi">
-                    <label for="kapasitas">Kapasitas Event</label>
-                    <input type="text" class="form-control" id="kapasitas" name="kapasitas">
-                    <label for="kategori">Kategori Event</label>
-                    <input type="text" class="form-control" id="kategori" name="kategori">
-                    <label for="gambar">Gambar Event</label>
-                    <input type="file" class="form-control p-1" id="gambar" name="gambar">
-                </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </form>
+            
+        </div>
         </div>
     </div>
 </div>
@@ -152,7 +142,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-danger">Hapus</button>
+            <a href="<?= base_url(); ?>event/hapus/<?= $e['id_event']; ?>" class="btn btn-danger">Hapus</a>
         </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #212529;">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('event'); ?>">
-                <img src="<?= base_url('assets'); ?>/img/gettix.png" alt="" width="200" height="100" class="img-fluid">
+                <img src="<?= base_url('assets'); ?>/img/gettix.png" alt="" width="180px" height="70px" class="img-fluid">
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider ">

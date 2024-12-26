@@ -15,4 +15,4 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-color: #480ca8;">
