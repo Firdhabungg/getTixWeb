@@ -42,7 +42,7 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <img src="/assets/img/gambar/profile.png" class="img-fluid" width="40px" height="40px">
+                <img src="/assets/img/gambar/profile.png" class="img-fluid" width="50px" height="50px" style="margin-right: 8px;">
             </div>
         </div>
     </nav>
