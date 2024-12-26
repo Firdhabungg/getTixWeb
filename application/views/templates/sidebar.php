@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('user'); ?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('event'); ?>">
                 <img src="<?= base_url('assets'); ?>/img/gettix.png" alt="" width="200" height="100" class="img-fluid">
             </a>
             <!-- Divider -->

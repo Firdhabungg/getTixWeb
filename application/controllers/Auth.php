@@ -8,6 +8,13 @@ class Auth extends CI_Controller {
     }
     public function index()
     {
+        if($this->session->userdata('email')){
+            if($this->session->userdata('role_id') == 1){
+                redirect('admin');
+            }else {
+                redirect('user');
+            }
+        }
         $data['title'] = 'Login';
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
@@ -54,7 +61,15 @@ class Auth extends CI_Controller {
             redirect('auth');
         }
     }
-    public function registrasi(){
+    public function registrasi()
+    {
+        if($this->session->userdata('email')){
+            if($this->session->userdata('role_id') == 1){
+                redirect('admin');
+            }else {
+                redirect('user');
+            }
+        }
         $data['title'] = 'Registrasi';
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[customer.email]', [

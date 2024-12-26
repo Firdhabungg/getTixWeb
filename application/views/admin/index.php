@@ -2,8 +2,34 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
-            <div class="container-fluid mt-3">
+        <div class="container-fluid">
+            <div class="row p-2">
+                <div class="col-sm">
+                    <div class="card text-white bg-info mb-3 shadow" style="max-width: 18rem;">
+                    <div class="card-header bg-gradient-info">Rekomendasi</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nama Event</h5>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header bg-gradient-warning">Rating Tertinggi</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nama Event</h5>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header bg-gradient-primary">Event Terlaris</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nama Event</h5>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
             <caption>List event</caption>
             <table class="table table-hover rounded-lg shadow-lg striped">
                 <thead class="bg-gradient-primary text-white">
@@ -30,7 +56,7 @@
                     <?php endforeach; ?>
                 </tbody>
                 </table>
-            </div>
+        </div>
     </div>
     <!-- /.container-fluid -->
 </div>
