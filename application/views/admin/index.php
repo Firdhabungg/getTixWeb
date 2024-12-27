@@ -76,7 +76,11 @@
             <div class="card" class="w-100">
                 <img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="card-img-top" alt="...">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fas fa-map-marker-alt"></i></li>
+                    <!-- lokasi -->
+                    <li class="list-group-item"><i class="fas fa-map-marker-alt"></i><small class="m-sm-2">
+    <?= isset($event['lokasi']) ? $event['lokasi'] : 'Lokasi tidak ditemukan'; ?>
+</small></small></li>
+                    <!--  -->
                     <li class="list-group-item"><i class="fas fa-calendar-check"></i></li>
                 </ul>
                 <div class="card-body">

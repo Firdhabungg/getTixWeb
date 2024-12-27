@@ -8,16 +8,27 @@ class Event extends CI_Controller {
     }
     public function index(){
         $data['title'] = 'Event';
+        $login = $this->session->userdata('email');
+        if(!$login){
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
+            redirect('auth');
+        }
         $this->load->view('event/event', $data);
     }
-    public function detail_event(){
+    public function detail_event($id){
         $data['title'] = 'Detail Event';
         $this->load->view('event/detail_event');
     }
     public function detail($id){
         $data['title'] = 'Detail Event';
-        $data['id'] = $this->event->getAllEventById($id);
-        $this->load->view('admin/index', $data);
+        $data['event'] = $this->event->getAllEventById($id);
+        if (!$data['event']) {
+            show_error('Event tidak ditemukan!', 404);
+        }
+        print_r($data['event']);
+        exit;
+        // $this->load->view('event/detail', $data);
+        $this->load->view('admin', $data);
     }
     public function hapus($id){
         $this->event->hapusDataEvent($id);

@@ -70,7 +70,7 @@
 				<!-- batas -->
 				<div class="carousel-item active">
 					<div class="row row-cols-1 row-cols-md-3 g-4">
-						<div class="col-4">
+						<div class="col-4 ">
 							<div class="card h-100">
 								<img src="<?= base_url('assets/img'); ?>/gambar/guton.jpg" class="card-img-top p-1 rounded bg-light" alt="event1" />
 								<div class="card-body">
