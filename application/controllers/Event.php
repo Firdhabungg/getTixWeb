@@ -9,14 +9,15 @@ class Event extends CI_Controller {
     }
     public function index(){
         $data['title'] = 'Event';
+        $data['event'] = $this->event->getAllEvent();
         $login = $this->session->userdata('email');
         if(!$login){
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
             redirect('auth');
         }
-        $this->load->view('event/event', $data);
+        $this->load->view('event/index', $data);
     }
-    public function detail_event($id){
+    public function detail_event(){
         $data['title'] = 'Detail Event';
         $this->load->view('event/detail_event');
     }

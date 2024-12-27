@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto justify-content-between ">
                     <li class="nav-item">
-                        <a class="nav-link hover-light" aria-current="page" href="#">Home</a>
+                        <a class="nav-link hover-light" aria-current="page" href="<?= base_url('event'); ?>">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Event</a>
@@ -42,7 +42,7 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <img src="/assets/img/gambar/profile.png" class="img-fluid" width="50px" height="50px" style="margin-right: 8px;">
+                <img src="<?= base_url(); ?>/assets/img/gambar/profile.png" class="img-fluid" width="40px" style="margin-right: 8px;">
             </div>
         </div>
     </nav>
