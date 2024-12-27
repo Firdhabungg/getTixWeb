@@ -33,9 +33,6 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small text-danger" href="forgot-password.html">Lupa Password?</a>
-                        </div>
-                        <div class="text-center">
                             <a class="small" href="<?= base_url('auth'); ?>">Sudah punya akun? Login!</a>
                         </div>
                     </div>

@@ -15,4 +15,4 @@
 
 </head>
 
-<body style="background-color: #480ca8;">
+<body style="background-image: url('<?= base_url('assets'); ?>/img/login-background7.png'); background-size: cover;">>

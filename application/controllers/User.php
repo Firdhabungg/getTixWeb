@@ -9,6 +9,7 @@ class User extends CI_Controller {
         $data['title'] = 'My Profile';
         $email = $this->session->userdata('email'); //mengambil data dari session
         if (!$email) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
             redirect('auth');
         }
         $data['user'] = $this->user->getUserBySession($email);

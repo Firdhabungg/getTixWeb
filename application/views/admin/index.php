@@ -30,6 +30,11 @@
                 </div>
             </div>
             <?= $this->session->flashdata('message'); ?>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <a href="<?= base_url(); ?>admin/tambah" class="btn btn-primary mb-3"><i class="fas fa-plus"></i><small class="ml-2">tambah</small></a>
+                </div>
+            </div>
             <caption>List event</caption>
             <table class="table table-hover rounded-lg shadow-lg striped">
                 <thead class="bg-gradient-primary text-white">
@@ -48,8 +53,8 @@
                     <td><?= $e['nama_event']; ?></td>
                     <td><?= $e['kategori']; ?></td>
                     <td>
-                        <a href="<?= base_url(); ?>event/detail/<?= $e['id_event']; ?>" class="badge badge-success" data-toggle="modal" data-target="#modalDetail">Detail</a>
-                        <a href="" class="badge badge-warning" data-toggle="modal" data-target="#modalEdit">Edit</a>
+                        <a href="<?= base_url(); ?>admin/detail/<?= $e['id_event']; ?>" class="badge badge-success">Detail</a>
+                        <a href="<?= base_url(); ?>admin/editEvent/<?= $e['id_event']; ?>" class="badge badge-warning">Edit</a>
                         <a href="<?= base_url(); ?>event/hapus/<?= $e['id_event']; ?>" class="badge badge-danger" data-toggle="modal" data-target="#modalHapus">Delete</a>
                     </td>
                     </tr>
@@ -67,21 +72,24 @@
     <div class="modal-dialog">
         <div class="modal-content rounded">
         <div class="modal-header bg-primary">
-            <h5 class="modal-title text-light" id="modalDetailLabel">Nama Event</h5>
+            <h5 class="modal-title text-light" id="modalDetailLabel"><p><?= $event['nama_event']; ?></p></h5>
             <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body ">
-            <div class="card" class="w-100">
+            <div class="card w-100">
                 <img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="card-img-top" alt="...">
                 <ul class="list-group list-group-flush">
                     <!-- lokasi -->
-                    <li class="list-group-item"><i class="fas fa-map-marker-alt"></i><small class="m-sm-2">
-    <?= isset($event['lokasi']) ? $event['lokasi'] : 'Lokasi tidak ditemukan'; ?>
-</small></small></li>
-                    <!--  -->
-                    <li class="list-group-item"><i class="fas fa-calendar-check"></i></li>
+                    <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>
+                    <small class="ms-3">Mandala</small>
+                </li>
+                    <!-- tanggal -->
+                    <li class="list-group-item"><i class="fas fa-calendar-check"></i>
+                    <small class="ms-3"><?= date('d F Y'); ?></small>
+                </li>
+                
                 </ul>
                 <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

@@ -5,6 +5,7 @@ class Event extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('Event_model', 'event');
+        $this->load->model('User_model', 'user');
     }
     public function index(){
         $data['title'] = 'Event';
@@ -19,16 +20,8 @@ class Event extends CI_Controller {
         $data['title'] = 'Detail Event';
         $this->load->view('event/detail_event');
     }
-    public function detail($id){
-        $data['title'] = 'Detail Event';
-        $data['event'] = $this->event->getAllEventById($id);
-        if (!$data['event']) {
-            show_error('Event tidak ditemukan!', 404);
-        }
-        print_r($data['event']);
-        exit;
-        // $this->load->view('event/detail', $data);
-        $this->load->view('admin', $data);
+    public function editEvent($id){
+        $this->event->getEventById($id);
     }
     public function hapus($id){
         $this->event->hapusDataEvent($id);
