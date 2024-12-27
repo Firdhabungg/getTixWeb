@@ -36,15 +36,13 @@
                         <a class="nav-link hover-light" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <button class="btn btn-success" type="submit">Login</button>
-                </form>
+                <img src="/assets/img/gambar/profile.png" class="img-fluid" width="50px" height="50px" style="margin-right: 8px;">
             </div>
         </div>
     </nav>
@@ -95,3 +93,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>
+    
