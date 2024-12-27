@@ -12,12 +12,18 @@
 			body {
 				font-family: 'Poppins', Arial, sans-serif;
 			}
+			.img-event {
+				transition: transform 0.3s ease;
+			}.img-event:hover {
+				transform: scale(1.1);
+				box-shadow: 0 0 25px white;
+			}
 		</style>
 	</head>
 	<body style="background-color: #343a40">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 pb-2">
 			<div class="container-fluid">
-				<img src="<?= base_url('assets/img'); ?>/gambar/gettix.png" alt="gambarget" width="180px" height="70px">
+				<img src="<?= base_url('assets/img/gambar/gettix.png'); ?>" alt="gambarget" width="180px" height="70px">
 				<a class="navbar-brand" href="#"></a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -34,8 +40,11 @@
 							<a class="nav-link" href="#">Contact</a>
 						</li>
 					</ul>
-					<form class="d-flex">
-						<a href="<?= base_url('user'); ?>" class="text-light me-2 btn btn-outline-light hover-dark" type="submit"><i class="fa-solid fa-user"></i></a>
+					<form class="d-flex">	
+						<a href="<?= base_url('user'); ?>" class="text-dark btn rounded-pill bg-light" type="button">
+							<img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>" style="width: 20px; margin-right: 8px;">
+							<small><?= $user['name']; ?></small>
+						</a>
 					</form>
 				</div>
 			</div>
@@ -44,20 +53,33 @@
 		<!-- start carousel -->
 		<div id="carouselExampleIndicators" class="carousel slide mb-4">
 			<div class="carousel-indicators">
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<?php 
+				$i = 0; // Indeks indikator
+				foreach ($event as $e) { 
+				?>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $i; ?>" class="<?= $i === 0 ? 'active' : ''; ?>" aria-current="<?= $i === 0 ? 'true' : 'false'; ?>" aria-label="Slide <?= $i + 1; ?>"></button>
+				<?php 
+					$i++; 
+				} 
+				?>
 			</div>
 			<div class="carousel-inner">
-				<div class="carousel-item active p-1 bg-gradient-light">
-				<img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="d-block img-fluid rounded bg-light shadow-lg " style="object-fit: cover; margin: 0 auto;" alt="..." >
-				</div>
-				<div class="carousel-item">
-				<img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="d-block img-fluid rounded bg-light shadow-lg " style="object-fit: cover; margin: 0 auto;" alt="..." >
-				</div>
-				<div class="carousel-item">
-				<img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="d-block img-fluid rounded bg-light shadow-lg " style="object-fit: cover; margin: 0 auto;" alt="..." >
-				</div>
+				<?php
+				$active = true; // Menentukan slide pertama sebagai aktif
+				foreach ($event as $e) : 
+					$gambar = $e['gambar_event']; // Kolom gambar
+					if (file_exists(FCPATH . 'uploads/events/' . $gambar)) { // Pastikan file gambar ada
+				?>
+					<div class="carousel-item <?= $active ? 'active' : ''; ?> p-2">
+						<a href="<?= base_url('event/detail_event/'. $e['id_event']); ?>" class="">
+							<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="img-event d-block img-fluid w-90 h-100 rounded bg-light" style="object-fit: cover; margin: 0 auto;" alt="Gambar Event">
+						</a>
+					</div>
+				<?php
+						$active = false; // Slide berikutnya tidak aktif
+					}
+				endforeach;
+				?>
 			</div>
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,6 +90,7 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
+
 		<!-- end carousel -->
 		<!-- Search  -->
 		<div class="container-fluid mb-3">

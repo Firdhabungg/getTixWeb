@@ -110,8 +110,7 @@ class Admin extends CI_Controller {
                     'gambar_event' => $gambarEvent
                 ];
     
-                $coba = $this->event->tambahEvent($eventData);
-                var_dump($coba);
+                $this->event->tambahEvent($eventData);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil ditambahkan</div>');
                 redirect('admin');
             } else {
@@ -145,7 +144,7 @@ class Admin extends CI_Controller {
             $this->load->view('admin/editEvent', $data);
             $this->load->view('templates/footer');
         } else {
-            $updatedData = [
+            $update = [
                 'nama_event' => $this->input->post('nama_event', true),
                 'waktu_acara' => $this->input->post('waktu', true),
                 'lokasi' => $this->input->post('lokasi', true),
@@ -161,8 +160,8 @@ class Admin extends CI_Controller {
                 $this->load->library('upload', $config);
     
                 if ($this->upload->do_upload('gambar')) {
-                    $uploadedImage = $this->upload->data('file_name');
-                    $updatedData['gambar_event'] = $uploadedImage;
+                    $uploadedImg = $this->upload->data('file_name');
+                    $update['gambar_event'] = $uploadedImg;
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
                     redirect('admin/editEvent/' . $id);
@@ -170,7 +169,7 @@ class Admin extends CI_Controller {
             }
     
             // Update data ke database
-            $this->db->update('event', $updatedData, ['id_event' => $id]);
+            $this->db->update('event', $update, ['id_event' => $id]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil diedit</div>');
             redirect('admin');
         }
