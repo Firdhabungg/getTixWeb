@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', Arial, sans-serif;
@@ -53,13 +53,11 @@
         </div>
         <h5 class="mt-4">Detail Event</h5>
         <p><?= $detail['deskripsi']; ?></p>
-        <p>What’s on:
-            <ul>
-                <li><i class="fas fa-user-plus fa-2x text-primary"></i></li>
-                <li>30+ Unique Flavors of Pontianak F&B Tenants</li>
-                <li>4 Confirmed Line Up: Juicy Luicy, Lomba Sihir, Nidji, & Vierratale</li>
-            </ul>
-        </p>
+        <ul>
+            <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>
+            <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>
+            <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>~
+        </ul>
     </div>
 
     <div class="container-fluid text-center mt-5">

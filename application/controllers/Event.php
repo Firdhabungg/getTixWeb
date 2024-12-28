@@ -27,8 +27,19 @@ class Event extends CI_Controller {
         $this->event->getEventById($id);
     }
     public function hapus($id){
-        $this->event->hapusDataEvent($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil dihapus</div>');
+        $event = $this->event->getEventById($id);
+        if($event){
+            $gambar = $event['gambar_event'];
+            $path = './uploads/events/' . $gambar;
+            if(file_exists($path)){
+                unlink($path);
+            }
+            $this->event->hapusDataEvent($id);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil dihapus</div>');
+            redirect('admin');
+        }else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Event gagal dihapus</div>');
+        }
         redirect('admin');
     }
 }

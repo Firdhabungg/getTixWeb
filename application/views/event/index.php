@@ -23,7 +23,7 @@
 	<body style="background-color: #343a40">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 pb-2">
 			<div class="container-fluid">
-				<img src="<?= base_url('assets/img/gambar/gettix.png'); ?>" alt="gambarget" width="180px" height="70px">
+				<img src="<?= base_url('assets/img/gambar/gettix.png'); ?>" alt="gambarget" width="180px" height="60px">
 				<a class="navbar-brand" href="#"></a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -40,12 +40,9 @@
 							<a class="nav-link" href="#">Contact</a>
 						</li>
 					</ul>
-					<form class="d-flex">	
-						<a href="<?= base_url('user'); ?>" class="text-dark btn rounded-pill bg-light" type="button">
-							<img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>" style="width: 20px; margin-right: 8px;">
-							<small><?= $user['name']; ?></small>
-						</a>
-					</form>
+					<a href="<?= base_url('user'); ?>" type="button" data-bs-toggle="modal" data-bs-target="#menuModal">
+						<img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>" style="width: 40px; margin-right: 8px;">
+					</a>
 				</div>
 			</div>
 		</nav>
@@ -176,6 +173,28 @@
 				height: 70px;">
 			</div>
 		</footer>
+
+		<!-- modal profile -->
+		<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="menuModalLabel">Pilih Menu</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Silakan pilih salah satu opsi di bawah ini:</p>
+					<div class="d-grid gap-2">
+						<!-- Profile Button -->
+						<a href="<?= base_url('user'); ?>" class="btn btn-primary">Profile</a>
+						<!-- Logout Button -->
+						<a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger">Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!-- end modal -->
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

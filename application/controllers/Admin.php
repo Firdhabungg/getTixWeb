@@ -37,34 +37,6 @@ class Admin extends CI_Controller {
         $this->load->view('admin/detailEvent', $data);
         $this->load->view('templates/footer');
     }
-    // public function editEvent($id){
-    //     $data['title'] = 'Edit Event';
-    //     $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim');
-    //     $this->form_validation->set_rules('waktu', 'Waktu', 'required|trim');
-    //     $this->form_validation->set_rules('lokasi', 'Lokasi', 'required|trim');
-    //     $this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required|trim');
-    //     $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim');
-    //     $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
-    //     $this->form_validation->set_rules('gambar_event', 'Gambar Event', 'required');
-    //     if($this->form_validation->run() == false){
-    //         $email = $this->session->userdata('email'); //mengambil data dari session
-    //         if (!$email) {
-    //             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
-    //             redirect('auth');
-    //         }
-    //         $data['user'] = $this->user->getUserBySession($email);
-    //         $data['event'] = $this->event->getEventById($id);
-    //         $this->load->view('templates/header', $data);
-    //         $this->load->view('templates/sidebar', $data);
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('admin/editEvent', $data);
-    //         $this->load->view('templates/footer');
-    //     }else{
-    //         $this->event->editEvent($id);
-    //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil diedit</div>');
-    //         redirect('admin');
-    //     }
-    // }
     public function tambah(){
         $data['title'] = 'Tambah Event';
     
