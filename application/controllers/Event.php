@@ -24,7 +24,7 @@ class Event extends CI_Controller {
         $data['detail'] = $this->event->getEventById($id);
         $data['tickets'] = $this->tiket->getTiketByEvent($id);
         $this->load->view('event/detail_event', $data);
-        $this->load->view('tiket/qrcode', $data);
+        
     }
     public function editEvent($id){
         $this->event->getEventById($id);

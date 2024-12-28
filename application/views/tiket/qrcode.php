@@ -122,7 +122,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 pb-2 shadow-lg">
         <div class="container-fluid">
-            <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="gambarget" class="img-fluid" width="180px" height="70px">
+            <a href="<?= base_url('event'); ?>">
+                <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="gambarget" class="img-fluid" width="180px" height="70px">
+            </a>
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -130,7 +132,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link hover-light" aria-current="page" href="#">Home</a>
+                        <a class="nav-link hover-light" aria-current="page" href="<?= base_url('event'); ?>">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Event</a>
@@ -149,34 +151,32 @@
     <div class="event-container">
         <div class="event-details">
             <div class="card">
-                <img src="<?= base_url('uploads/events/' . $event['gambar_event']); ?>" class="card-img-top p-1 rounded bg-light" alt="event" style="height: 300px;" />
+                <img src="<?= base_url('assets/img/gambar/guton.jpg'); ?>" class="card-img-top p-1 rounded bg-light" alt="event" style="height: 300px;" />
                 <div class="card-body">
                     <h5 class="card-title">WJNC</h5>
                     <div class="card-context">
-                        <p class="text-context1">Tanggal:</p>
-                        <p class="text-context2">Waktu:</p>
-                        <p class="text-context3">Lokasi:</p>
+                        <p class="text-context1 fw-bold">Tanggal:</p>
+                        <p class="text-context2 fw-bold">Waktu:</p>
                     </div>
                     <div class="card-isi">
-                        <p class="text-isi1">Senin, 7 Oktober 2024</p>
-                        <p class="text-isi2">16.00 - 23.00 WIB</p>
-                        <p class="text-isi3">Tugu Yogyakarta</p>
+                        <p class="text-isi1 "><?= date('l, d F Y'); ?></p>
+                        <p class="text-isi2"><?= date('h:i'); ?> WIB</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="qr-details">
-            <div class="qr-card">
+            <div class="qr-card w-20">
                 <h2>Scan QR Code</h2>
                 <div class="qr-image">
                     <img src="<?= base_url('assets/img/gambar/qrcode.png'); ?>" alt="QR Code">
                 </div>
                 <div class="qrtext">
-                        <p class="text-qr1">Nama :</p>
-                        <p class="text-qr2"><?= $user['name']; ?></p>
-                        <p class="text-qr1">Email :</p>
-                        <p class="text-qr2"><?= $user['email']; ?></p>
+                        <small class="text-qr1">Nama :</small>
+                        <small class="text-qr2"><?= $user['name']; ?></small><br>
+                        <small class="text-qr1">Email :</small>
+                        <small class="text-qr2"><?= $user['email']; ?></small>
                 </div>
                 <div class="button tutup">
                     <a href="#" class="btn btn-custom">Tutup</a>

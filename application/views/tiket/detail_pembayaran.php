@@ -39,7 +39,7 @@
         <div class="card-body d-flex flex-wrap align-items-left justify-content-between">
             <div>
                 <p class="mb-2"><strong>Kode Transaksi:</strong> #GET65342AF5B401</p>
-                <p class="mb-2"><strong>Dibeli Pada:</strong> 30 Juni 2024 15:00</p>
+                <p class="mb-2"><strong>Dibeli Pada:</strong> <?= date('d F Y'); ?></p>
                 <p class="mb-2"><strong>Metode Pembayaran:</strong> QRIS</p>
             </div>
             <div>
