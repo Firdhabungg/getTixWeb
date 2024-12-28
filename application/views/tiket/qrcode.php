@@ -122,7 +122,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 pb-2 shadow-lg">
         <div class="container-fluid">
-            <img src="asset/gettix.png" alt="gambarget" class="img-fluid" width="180px" height="70px">
+            <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="gambarget" class="img-fluid" width="180px" height="70px">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -140,7 +140,7 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <button class="btn btn-success" type="submit">Login</button>
+                <img src="<?= base_url(); ?>/assets/img/gambar/profile.png" class="img-fluid" width="40px" style="margin-right: 8px;">
                 </form>
             </div>
         </div>
@@ -149,7 +149,7 @@
     <div class="event-container">
         <div class="event-details">
             <div class="card">
-                <img src="asset/runevent.png" class="card-img-top p-1 rounded bg-light" alt="event" style="height: 300px;" />
+                <img src="<?= base_url('uploads/events/' . $event['gambar_event']); ?>" class="card-img-top p-1 rounded bg-light" alt="event" style="height: 300px;" />
                 <div class="card-body">
                     <h5 class="card-title">WJNC</h5>
                     <div class="card-context">
@@ -170,13 +170,13 @@
             <div class="qr-card">
                 <h2>Scan QR Code</h2>
                 <div class="qr-image">
-                    <img src="asset/qr.png" alt="QR Code">
+                    <img src="<?= base_url('assets/img/gambar/qrcode.png'); ?>" alt="QR Code">
                 </div>
                 <div class="qrtext">
                         <p class="text-qr1">Nama :</p>
-                        <p class="text-qr2">Anwar Syafi'i</p>
+                        <p class="text-qr2"><?= $user['name']; ?></p>
                         <p class="text-qr1">Email :</p>
-                        <p class="text-qr2">anwarsyafi@gmail.com</p>
+                        <p class="text-qr2"><?= $user['email']; ?></p>
                 </div>
                 <div class="button tutup">
                     <a href="#" class="btn btn-custom">Tutup</a>
@@ -186,7 +186,7 @@
     </div>
 
     <footer class="bg-dark text-white text-center py-3 footer fixed-bottom">
-        <img src="asset/gettix.png" alt="Gettix Logo" style="width: 200px; height: 70px;">
+        <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="Gettix Logo" style="width: 200px; height: 70px;">
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

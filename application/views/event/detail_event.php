@@ -61,34 +61,21 @@
             <i class="fa-solid fa-calendar"><small class="ms-2"><?= $detail['waktu_acara']; ?></small></i>
         </div>
         <div>
-            <i class="fa-solid fa-calendar"><small class="ms-2"><?= $detail['waktu_acara']; ?></small></i>
+            <i class="fa-solid fa-hourglass-start"></i><small class="ms-2"><?= $detail['kapasitas']; ?></small></i>
         </div>
     </div>
 
-    <div class="container-fluid text-center mt-5">
+    <div class="container-fluid text-center mt-5 mb-5">
         <div class="row gap-3 justify-content-around">
+            <?php foreach ($tickets as $ticket) : ?>
             <div class="level col col-6 col-md-3 shadow-lg py-4" style="border-radius: 12px;">
-                <h3>Regular</h3>
-                <p>Harga: 30.000</p>
-                <button class="btn btn-primary">Pilih</button>
+                <h3><?= $ticket['jenis_ticket']; ?></h3>
+                <p>Harga: <?= number_format($ticket['harga'], 0, ',', '.'); ?></p>
+                <a href="<?= base_url('tiket/detail_tiket/'. $ticket['id_ticket']); ?>" class="btn btn-primary">Pilih</a>
             </div>
-            <div class="level col col-6 col-md-3 shadow-lg py-4" style="border-radius: 12px;">
-                <h3>VIP</h3>
-                <p>Harga: 50.000</p>
-                <button class="btn btn-primary">Pilih</button>
-            </div>
-            <div class="level col col-6 col-md-3 shadow-lg py-4" style="border-radius: 12px;">
-                <h3>VVIP</h3>
-                <p>Harga: 80.000</p>
-                <button class="btn btn-primary">Pilih</button>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
-
-    <div class="d-flex justify-content-center mt-4 mb-4">
-        <button class="btn btn-warning shadow-lg">BUY NOW</button>
-    </div>
-
     <footer class="bg-dark text-white text-center py-3">
         <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="Gettix Logo" style="width: 200px; height: 70px;">
     </footer>

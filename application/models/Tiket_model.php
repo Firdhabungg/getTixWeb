@@ -7,7 +7,7 @@ class Tiket_model extends CI_Model {
         return $this->db->get('ticket')->result_array();
     }
     public function getTiketById($id){
-        return $this->db->get_where('ticket', ['id_tiket' => $id])->row_array();
+        return $this->db->get_where('ticket', ['id_ticket' => $id])->row_array();
     }
     public function getTiketByEvent($id){
         return $this->db->get_where('ticket', ['id_event' => $id])->result_array();

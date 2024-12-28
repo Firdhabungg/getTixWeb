@@ -116,7 +116,9 @@
 						?>
 							<div class="col-4">
 								<div class="card h-100">
-									<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="card-img-top p-1 rounded bg-light" alt="<?= $nama ?>" />
+									<a href="<?= base_url('event/detail_event/'. $e['id_event']); ?>" class="">
+										<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="card-img-top p-1 rounded bg-light" alt="<?= $nama ?>" />
+									</a>
 									<div class="card-body">
 										<h5 class="card-title"><?= $nama ?></h5>
 										<p class="card-text"><?= $deskripsi ?></p>

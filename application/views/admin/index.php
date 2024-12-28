@@ -3,7 +3,7 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
         <div class="container-fluid">
-            <div class="row p-2">
+            <!-- <div class="row p-2">
                 <div class="col-sm">
                     <div class="card text-white bg-info mb-3 shadow" style="max-width: 18rem;">
                     <div class="card-header bg-gradient-info">Rekomendasi</div>
@@ -28,11 +28,11 @@
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <?= $this->session->flashdata('message'); ?>
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <a href="<?= base_url(); ?>admin/tambah" class="btn btn-primary mb-3"><i class="fas fa-plus"></i><small class="ml-2">tambah</small></a>
+                    <a href="<?= base_url(); ?>admin/tambah" class="btn btn-primary mb-3"><i class="fas fa-plus"></i><small class="ml-2">Tambah</small></a>
                 </div>
             </div>
             <caption>List event</caption>
