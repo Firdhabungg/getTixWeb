@@ -6,6 +6,7 @@ class Event extends CI_Controller {
         parent::__construct();
         $this->load->model('Event_model', 'event');
         $this->load->model('User_model', 'user');
+        $this->load->model('Tiket_model', 'tiket');
     }
     public function index(){
         $data['title'] = 'Event';
@@ -21,6 +22,11 @@ class Event extends CI_Controller {
     public function detail_event($id){
         $data['title'] = 'Detail Event';
         $data['detail'] = $this->event->getEventById($id);
+        $this->load->view('event/detail_event', $data);
+    }
+    public function detail_tiket($id){
+        $data['title'] = 'Detail Tiket';
+        $data['ticket'] =  $this->ticket->getTiketByEvent($id);
         $this->load->view('event/detail_event', $data);
     }
     public function editEvent($id){

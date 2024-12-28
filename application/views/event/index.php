@@ -99,16 +99,22 @@
 <!-- end search -->
 		<div id="carouselExampleControls1" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner p-3">
-				<?php
-				$active = true; // Menentukan slide pertama sebagai aktif
-				foreach ($event as $e) { // Loop melalui array data event
-					$gambar = $e['gambar_event']; // Kolom gambar
-					$nama = $e['nama_event']; // Kolom nama event
-					$deskripsi = $e['deskripsi']; // Kolom deskripsi
-				?>
-					<div class="carousel-item <?= $active ? 'active' : '' ?>">
-						<div class="row row-cols-1 row-cols-md-3 g-4">
-							<div class="col-4 col-md-4 col-sm-3">
+			<?php
+			$active = true; // Menentukan slide pertama sebagai aktif
+
+			// Pecah array event menjadi kelompok yang berisi 3 item per kelompok
+			$event_chunks = array_chunk($event, 3);
+
+			foreach ($event_chunks as $chunk) { 
+			?>
+				<div class="carousel-item <?= $active ? 'active' : '' ?>">
+					<div class="row row-cols-1 row-cols-md-3 g-4">
+						<?php foreach ($chunk as $e) { 
+							$gambar = $e['gambar_event'];
+							$nama = $e['nama_event'];
+							$deskripsi = $e['deskripsi'];
+						?>
+							<div class="col-4">
 								<div class="card h-100">
 									<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="card-img-top p-1 rounded bg-light" alt="<?= $nama ?>" />
 									<div class="card-body">
@@ -120,24 +126,23 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						<?php } ?>
 					</div>
-				<?php
-					$active = false; // Slide berikutnya tidak aktif
-				}
-				?>
-			</div>
+				</div>
+			<?php
+				$active = false; // Slide berikutnya tidak aktif
+			}
+			?>
 
-			<!-- Button Next and Prev -->
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-		</div>
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div> 
 
 <!-- cara beli tiket -->
 		<div class="container text-center my-5">

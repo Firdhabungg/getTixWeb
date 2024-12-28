@@ -53,11 +53,16 @@
         </div>
         <h5 class="mt-4">Detail Event</h5>
         <p><?= $detail['deskripsi']; ?></p>
-        <ul>
+        <p class="text-warning"><?= $detail['kategori']; ?></p>
+        <div>
             <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>
-            <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>
-            <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>~
-        </ul>
+        </div>
+        <div>
+            <i class="fa-solid fa-calendar"><small class="ms-2"><?= $detail['waktu_acara']; ?></small></i>
+        </div>
+        <div>
+            <i class="fa-solid fa-calendar"><small class="ms-2"><?= $detail['waktu_acara']; ?></small></i>
+        </div>
     </div>
 
     <div class="container-fluid text-center mt-5">
