@@ -122,7 +122,9 @@
 										<p class="card-text"><?= $deskripsi ?></p>
 									</div>
 									<div class="card-footer">
+										<a href="<?= base_url('event/detail_event/' . $e['id_event']); ?>">
 										<button class="btn btn-warning col-sm-12">Beli Sekarang</button>
+									</a>
 									</div>
 								</div>
 							</div>
@@ -130,7 +132,7 @@
 					</div>
 				</div>
 			<?php
-				$active = false; // Slide berikutnya tidak aktif
+				$active = false; 
 			}
 			?>
 
