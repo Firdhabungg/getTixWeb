@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Event</title>
+		<title><?= $title; ?></title>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -91,8 +91,8 @@
 		<!-- end carousel -->
 		<!-- Search  -->
 		<div class="container-fluid mb-3">
-			<form class="d-flex justify-content-center">
-				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 1000px;" />
+			<form class="d-flex justify-content-center" action="<?= base_url('event'); ?>" method="post">
+				<input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search" style="width: 1000px;" />
 				<button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</form>
 		</div>

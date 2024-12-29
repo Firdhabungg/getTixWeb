@@ -9,9 +9,12 @@ class Event extends CI_Controller {
         $this->load->model('Tiket_model', 'tiket');
     }
     public function index(){
-        $data['title'] = 'Event';
+        $data['title'] = 'Halaman Event';
         $data['event'] = $this->event->getAllEvent();
-        $email = $this->session->userdata('email'); //jika sudah login maka session dibuat
+        if($this->input->post('search')){
+            $data['event'] = $this->event->searchEvent();
+        }
+        $email = $this->session->userdata('email');
         if(!$email){
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
             redirect('auth');

@@ -18,4 +18,11 @@ class Event_model extends CI_Model {
     public function hapusDataEvent($id){
         $this->db->delete('event',['id_event' => $id]);
     }
+    public function searchEvent(){
+        $search = $this->input->post('search', true);
+        $this->db->like('nama_event', $search);
+        $this->db->or_like('kategori', $search);
+        $this->db->or_like('lokasi', $search);
+        return $this->db->get('event')->result_array();
+    }
 }
