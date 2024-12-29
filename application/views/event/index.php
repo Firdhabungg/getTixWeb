@@ -34,7 +34,7 @@
 							<a class="nav-link active" aria-current="page" href="<?= base_url('event'); ?>">Beranda</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Event</a>
+							<a class="nav-link" href="<?= base_url('event'); ?>">Event</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Contact</a>
@@ -69,7 +69,7 @@
 				?>
 					<div class="carousel-item <?= $active ? 'active' : ''; ?> p-2">
 						<a href="<?= base_url('event/detail_event/'. $e['id_event']); ?>" class="">
-							<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="img-event d-block img-fluid w-90 h-100 rounded bg-light" style="object-fit: cover; margin: 0 auto;" alt="Gambar Event">
+							<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="img-event d-block img-fluid w-90 h-50 rounded bg-light" style="object-fit: cover; margin: 0 auto;" alt="Gambar Event">
 						</a>
 					</div>
 				<?php
@@ -139,14 +139,14 @@
 			?>
 
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div> 
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div> 
 
 <!-- cara beli tiket -->
 		<div class="container text-center my-5">
@@ -185,24 +185,20 @@
 
 		<!-- modal profile -->
 		<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="menuModalLabel">Pilih Menu</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p>Silakan pilih salah satu opsi di bawah ini:</p>
-					<div class="d-grid gap-2">
-						<!-- Profile Button -->
-						<a href="<?= base_url('user'); ?>" class="btn btn-primary">Profile</a>
-						<!-- Logout Button -->
-						<a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger">Logout</a>
+			<div class="modal-dialog modal-dialog-scrollable position-absolute end-0 pt-5">
+				<div class="modal-content">
+					<div class="modal-header">
+						<small type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></small>
+					</div>
+					<div class="modal-body">
+						<div class="d-grid gap-2">
+							<a href="<?= base_url('user'); ?>" class="btn btn-primary">Profile</a>
+							<a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger">Logout</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 		<!-- end modal -->
 
 		<script

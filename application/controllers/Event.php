@@ -21,10 +21,17 @@ class Event extends CI_Controller {
     }
     public function detail_event($id){
         $data['title'] = 'Detail Event';
+        $data['event'] = $this->event->getAllEvent();
+        $email = $this->session->userdata('email'); //jika sudah login maka session dibuat
+        if(!$email){
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
+            redirect('auth');
+        }
+        $data['user'] = $this->user->getUserBySession($email);
         $data['detail'] = $this->event->getEventById($id);
         $data['tickets'] = $this->tiket->getTiketByEvent($id);
-        $this->load->view('event/detail_event', $data);
         
+        $this->load->view('event/detail_event', $data);
     }
     public function editEvent($id){
         $this->event->getEventById($id);

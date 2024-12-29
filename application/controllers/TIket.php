@@ -20,6 +20,15 @@ class Tiket extends CI_Controller {
     }
     public function detail_tiket($id){
         $data['title'] = 'Detail Pembayaran';
+        $email = $this->session->userdata('email'); //jika sudah login maka session dibuat
+        if(!$email){
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
+            redirect('auth');
+        }
+        $data['user'] = $this->user->getUserBySession($email);
+        $data['detail'] = $this->event->getEventById($id);
+        $data['tickets'] = $this->tiket->getTiketByEvent($id);
+        
         $data['tiket'] = $this->tiket->getTiketById($id);
         $this->load->view('tiket/detail_pembayaran', $data);
     }
@@ -31,8 +40,9 @@ class Tiket extends CI_Controller {
             redirect('auth');
         }
         $data['user'] = $this->user->getUserBySession($email);
-        $data['tiket'] = $this->tiket->getTiketById($id);
-        $data['event'] = $this->event->getEventById($id);
+        $data['tiket'] = $this->tiket->getTiketWithEvent($id);
+
         $this->load->view('tiket/qrcode', $data);
     }
+    
 }

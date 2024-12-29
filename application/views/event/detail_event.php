@@ -14,7 +14,7 @@
             font-family: 'Poppins', Arial, sans-serif;
         }
         .level, .img-event {
-            transition: transform 0.3s ease; 
+            transition: transform 0.3s ease;
         }
         .level:hover, .img-event:hover {
             transform: scale(1.1);
@@ -36,13 +36,15 @@
                         <a class="nav-link hover-light" aria-current="page" href="<?= base_url('event'); ?>">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Event</a>
+                        <a class="nav-link" href="<?= base_url('event'); ?>">Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <img src="<?= base_url(); ?>/assets/img/gambar/profile.png" class="img-fluid" width="40px" style="margin-right: 8px;">
+                <a href="<?= base_url('user'); ?>" type="button" data-bs-toggle="modal" data-bs-target="#menuModal">
+                    <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>" style="width: 40px; margin-right: 8px;">
+                </a>
             </div>
         </div>
     </nav>
@@ -53,13 +55,34 @@
         </div>
         <h5 class="mt-4">Detail Event</h5>
         <p><?= $detail['deskripsi']; ?></p>
-        <p class="text-warning"><?= $detail['kategori']; ?></p>
+        <p class="text-warning">Kategori: <?= $detail['kategori']; ?></p>
         <div>
             <i class="fa-solid fa-location-dot"></i><small class="ms-2"><?= $detail['lokasi']; ?></small>
         </div>
-        <div>
-            <i class="fa-solid fa-calendar"><small class="ms-2"><?= $detail['waktu_acara']; ?></small></i>
-        </div>
+        <i class="fa-solid fa-calendar"></i>
+        <?php
+            $date = $detail['waktu_acara']; // Contoh: "2024-12-27 00:00:00"
+            $formatted_date = date('d F Y H:i', strtotime($date));
+            $bulan = [
+                'January' => 'Januari',
+                'February' => 'Februari',
+                'March' => 'Maret',
+                'April' => 'April',
+                'May' => 'Mei',
+                'June' => 'Juni',
+                'July' => 'Juli',
+                'August' => 'Agustus',
+                'September' => 'September',
+                'October' => 'Oktober',
+                'November' => 'November',
+                'December' => 'Desember'
+            ];
+
+            // Ganti nama bulan ke bahasa Indonesia
+            $formatted_date = str_replace(array_keys($bulan), array_values($bulan), $formatted_date);
+
+            echo $formatted_date; 
+            ?>
         <div>
             <i class="fa-solid fa-hourglass-start"></i><small class="ms-2"><?= $detail['kapasitas']; ?></small></i>
         </div>
@@ -76,6 +99,23 @@
             <?php endforeach; ?>
         </div>
     </div>
+    <!-- modal profile -->
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable position-absolute end-0 pt-5">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <small type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></small>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+                        <a href="<?= base_url('user'); ?>" class="btn btn-primary">Profile</a>
+                        <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		<!-- end modal -->
     <footer class="bg-dark text-white text-center py-3">
         <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="Gettix Logo" style="width: 200px; height: 70px;">
     </footer>

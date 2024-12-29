@@ -12,4 +12,12 @@ class Tiket_model extends CI_Model {
     public function getTiketByEvent($id){
         return $this->db->get_where('ticket', ['id_event' => $id])->result_array();
     }
+    public function getTiketWithEvent($id_ticket) {
+        $this->db->select('ticket.*, event.nama_event, event.gambar_event');
+        $this->db->from('ticket');
+        $this->db->join('event', 'event.id_event = ticket.id_event');
+        $this->db->where('ticket.id_ticket', $id_ticket);
+        return $this->db->get()->row_array();
+    }
+    
 }

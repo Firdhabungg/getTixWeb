@@ -91,8 +91,13 @@ class Admin extends CI_Controller {
             }
         }
     }
-    public function editEvent($id) {
+    // edit event
+    public function edit($id) {
         $data['title'] = 'Edit Event';
+        $data['event'] = $this->event->getEventById($id);
+        $data['kategori'] = ['Konser', 'Seminar', 'Sport'];
+    
+        // Validasi form
         $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim');
         $this->form_validation->set_rules('waktu', 'Waktu', 'required|trim');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required|trim');
@@ -100,29 +105,26 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
     
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run() == FALSE) {
             $email = $this->session->userdata('email');
             if (!$email) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
                 redirect('auth');
             }
-    
             $data['user'] = $this->user->getUserBySession($email);
-            $data['event'] = $this->event->getEventById($id);
-    
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('admin/editEvent', $data);
             $this->load->view('templates/footer');
         } else {
-            $update = [
+            $updateData = [
                 'nama_event' => $this->input->post('nama_event', true),
                 'waktu_acara' => $this->input->post('waktu', true),
                 'lokasi' => $this->input->post('lokasi', true),
                 'kapasitas' => $this->input->post('kapasitas', true),
                 'kategori' => $this->input->post('kategori', true),
-                'deskripsi' => $this->input->post('deskripsi', true),
+                'deskripsi' => $this->input->post('deskripsi', true)
             ];
     
             if (!empty($_FILES['gambar']['name'])) {
@@ -133,19 +135,18 @@ class Admin extends CI_Controller {
     
                 if ($this->upload->do_upload('gambar')) {
                     $uploadedImg = $this->upload->data('file_name');
-                    $update['gambar_event'] = $uploadedImg;
+                    $updateData['gambar_event'] = $uploadedImg;
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-                    redirect('admin/editEvent/' . $id);
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors('', '') . '</div>');
+                    redirect('admin/edit/' . $id);
+                    return;
                 }
             }
     
-            // Update data ke database
-            $this->db->update('event', $update, ['id_event' => $id]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil diedit</div>');
+            $this->event->editDataEvent($updateData, $id);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil diperbarui!</div>');
             redirect('admin');
         }
-    }
-    
+    }    
     
 }

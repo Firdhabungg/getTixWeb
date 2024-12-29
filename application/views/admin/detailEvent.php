@@ -9,6 +9,9 @@
                         <small class="ms-3 text-danger"><?= $event['kategori']; ?></small>
                     </li>
                     <li class="list-group-item">
+                        <small class="ms-3"><?= $event['deskripsi']; ?></small>
+                    </li>
+                    <li class="list-group-item">
                         <i class="fas fa-fw fa-map-marker-alt"></i>
                         <small class="ms-3"><?= $event['lokasi']; ?></small>
                     </li>
@@ -17,11 +20,8 @@
                         <small class="ms-3"><?= $event['waktu_acara']; ?></small>
                     </li>
                     <li class="list-group-item">
-                        <i class="fas fa-fw fa-ticket-alt"></i>
+                        <i class="fas fa-fw fa-hourglass-start"></i>
                         <small class="ms-3"><?= $event['kapasitas']; ?></small>
-                    </li>
-                    <li class="list-group-item">
-                        <small class="ms-3"><?= $event['deskripsi']; ?></small>
                     </li>
                 </ul>
                 <div class="card-body text-right">

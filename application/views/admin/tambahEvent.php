@@ -9,13 +9,17 @@
             <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="lokasi" >
             </div>
             <div class="form-group p-2">
-            <input type="date" class="form-control" id="waktu" name="waktu" placeholder="waktu" >
+            <input type="datetime-local" class="form-control" id="waktu" name="waktu" placeholder="waktu" >
             </div>
             <div class="form-group p-2">
-            <input type="text" class="form-control" id="kapasitas" name="kapasitas" placeholder="kapasitas" >
+                <input type="text" class="form-control" id="kapasitas" name="kapasitas" placeholder="kapasitas" >
             </div>
             <div class="form-group p-2">
-            <input type="text" class="form-control" id="kategori" name="kategori" placeholder="kategori" >
+                <select class="form-select" id="kategori" name="kategori">
+                        <option value="konser" selected>Konser</option>
+                        <option value="seminar" selected>Seminar</option>
+                        <option value="sport" selected>Sport</option>
+                    </select>
             </div>
             <div class="form-group p-2">
             <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="deskripsi"></textarea>
