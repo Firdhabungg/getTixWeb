@@ -44,7 +44,7 @@
 		<div id="carouselExampleIndicators" class="carousel slide mb-4">
 			<div class="carousel-indicators">
 				<?php 
-				$i = 0; // Indeks indikator
+				$i = 0; 
 				foreach ($event as $e) { 
 				?>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $i; ?>" class="<?= $i === 0 ? 'active' : ''; ?>" aria-current="<?= $i === 0 ? 'true' : 'false'; ?>" aria-label="Slide <?= $i + 1; ?>"></button>
@@ -80,8 +80,8 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
-
 		<!-- end carousel -->
+		
 		<!-- Search  -->
 		<div class="container-fluid mb-3">
 			<form class="d-flex justify-content-center" action="<?= base_url('event'); ?>" method="post">
@@ -96,13 +96,13 @@
 			$active = true; // Menentukan slide pertama sebagai aktif
 
 			// Pecah array event menjadi kelompok yang berisi 3 item per kelompok
-			$event_chunks = array_chunk($event, 3);
+			$event_array = array_chunk($event, 3);
 
-			foreach ($event_chunks as $chunk) { 
+			foreach ($event_array as $events) { 
 			?>
 				<div class="carousel-item <?= $active ? 'active' : '' ?>">
 					<div class="row row-cols-1 row-cols-md-3 g-4">
-						<?php foreach ($chunk as $e) { 
+						<?php foreach ($events as $e) { 
 							$gambar = $e['gambar_event'];
 							$nama = $e['nama_event'];
 							$deskripsi = $e['deskripsi'];
