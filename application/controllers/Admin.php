@@ -5,6 +5,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('User_model', 'user');
         $this->load->model('Event_model', 'event');
+        $this->load->model('Tiket_model', 'tiket');
         
     }
     public function index(){
@@ -31,6 +32,11 @@ class Admin extends CI_Controller {
         }
         $data['user'] = $this->user->getUserBySession($email);
         $data['event'] = $this->event->getEventById($id);
+        
+        $data['ticket_reguler'] = $this->tiket->getTiketByJenis($id, 'Reguler');
+        $data['ticket_vip'] = $this->tiket->getTiketByJenis($id, 'VIP');
+        $data['ticket_vvip'] = $this->tiket->getTiketByJenis($id, 'VVIP');
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -38,8 +44,7 @@ class Admin extends CI_Controller {
         $this->load->view('templates/footer');
     }
     public function tambah(){
-        $data['title'] = 'Tambah Event';
-    
+        $data['title'] = 'Tambah Event';    
         $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim');
         $this->form_validation->set_rules('waktu', 'Waktu', 'required|trim');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required|trim');
@@ -60,7 +65,6 @@ class Admin extends CI_Controller {
             $this->load->view('admin/tambahEvent', $data);
             $this->load->view('templates/footer');
         } else{
-            // upload gambar event
             $config['upload_path'] = './uploads/events/';
             $config['allowed_types'] = 'gif|jpg|jpeg|png';
             $config['max_size'] = 2048;
@@ -81,8 +85,7 @@ class Admin extends CI_Controller {
                     'deskripsi' => $this->input->post('deskripsi', true),
                     'gambar_event' => $gambarEvent
                 ];
-    
-                $this->event->tambahEvent($eventData);
+            $this->event->tambahEvent($eventData);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil ditambahkan</div>');
                 redirect('admin');
             } else {
@@ -91,7 +94,6 @@ class Admin extends CI_Controller {
             }
         }
     }
-    // edit event
     public function edit($id) {
         $data['title'] = 'Edit Event';
         $data['event'] = $this->event->getEventById($id);
@@ -144,7 +146,7 @@ class Admin extends CI_Controller {
             }
     
             $this->event->editDataEvent($updateData, $id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil diperbarui!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Event berhasil diperbarui</div>');
             redirect('admin');
         }
     }    

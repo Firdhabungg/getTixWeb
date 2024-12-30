@@ -29,7 +29,7 @@
                                     <input type="password" class="form-control form-control-user" name="password2" id="password2" placeholder="Repeat Password">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-user text-light btn-block" style="background-color:#003049">Daftar</button>
+                            <button type="submit" class="btn btn-user text-light btn-block" style="background-color:#03045e">Daftar</button>
                         </form>
                         <hr>
                         <div class="text-center">

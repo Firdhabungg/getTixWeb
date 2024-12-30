@@ -19,7 +19,7 @@
                                         <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
                                         <div class="small mt-1 text-danger ml-2"><?= form_error('password') ?></div>
                                     </div>
-                                    <button type="submit" class="btn btn-user text-light btn-block" style="background-color:#003049">Login</button>
+                                    <button type="submit" class="btn btn-user text-light btn-block" style="background-color:#03045e">Login</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">

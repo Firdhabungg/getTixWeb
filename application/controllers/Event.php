@@ -13,6 +13,9 @@ class Event extends CI_Controller {
         $data['event'] = $this->event->getAllEvent();
         if($this->input->post('search')){
             $data['event'] = $this->event->searchEvent();
+            if(empty($data['event'])){
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Event tidak ditemukan</div>');
+            }
         }
         $email = $this->session->userdata('email');
         if(!$email){
@@ -33,7 +36,6 @@ class Event extends CI_Controller {
         $data['user'] = $this->user->getUserBySession($email);
         $data['detail'] = $this->event->getEventById($id);
         $data['tickets'] = $this->tiket->getTiketByEvent($id);
-        
         $this->load->view('event/detail_event', $data);
     }
     public function editEvent($id){
@@ -54,5 +56,12 @@ class Event extends CI_Controller {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Event gagal dihapus</div>');
         }
         redirect('admin');
+    }
+    public function harga($id){
+        $data['title'] = 'Tambah Harga Tiket';
+        $data['event'] = $this->event->getEventById($id);
+        $data['tickets'] = $this->tiket->getTiketByEvent($id);
+        $data['user'] = $this->user->getUserBySession($this->session->userdata('email'));
+        $this->load->view('event/harga', $data);
     }
 }

@@ -25,22 +25,15 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 pb-2 shadow-lg">
         <div class="container-fluid">
-            <img src="<?= base_url('assets/img'); ?>/gambar/gettix.png" alt="gambarget" class="img-fluid" width="180px" height="70px">
+            <a href="<?= base_url('event'); ?>">
+                <img src="<?= base_url('assets/img/gambar/gettix.png'); ?>" alt="gambarget" width="180px" height="60px">
+            </a>
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto justify-content-between ">
-                    <li class="nav-item">
-                        <a class="nav-link hover-light" aria-current="page" href="<?= base_url('event'); ?>">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('event'); ?>">Event</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
                 </ul>
                 <a href="<?= base_url('user'); ?>" type="button" data-bs-toggle="modal" data-bs-target="#menuModal">
                     <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>" style="width: 40px; margin-right: 8px;">

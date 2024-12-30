@@ -29,6 +29,36 @@
                 </div>
             </div>
         </div>
+        <!-- harga tiket -->
+        <div class="col-md-8 shadow h-50 p-3">
+            <h5 class="text-center mb-3">Daftar Harga Tiket</h5>
+            <div class="row text-center text-light">
+                <?php if (!empty($ticket_reguler)) : ?>
+                    <div class="col-sm-4">
+                        <div class="card shadow-sm p-3 bg-success">
+                            <small class="font-weight-bold">Reguler</small>
+                            <p class="mt-2">Rp <?= number_format($ticket_reguler['harga'], 0, ',', '.'); ?></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($ticket_vip)) : ?>
+                    <div class="col-sm-4">
+                        <div class="card shadow-sm p-3 bg-warning">
+                            <small class="font-weight-bold">VIP</small>
+                            <p class="mt-2">Rp <?= number_format($ticket_vip['harga'], 0, ',', '.'); ?></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($ticket_vvip)) : ?>
+                    <div class="col-sm-4">
+                        <div class="card shadow-sm p-3 bg-primary">
+                            <small class="font-weight-bold">VVIP</small>
+                            <p class="mt-2">Rp <?= number_format($ticket_vvip['harga'], 0, ',', '.'); ?></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 </div>
 

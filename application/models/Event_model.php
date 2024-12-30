@@ -25,4 +25,5 @@ class Event_model extends CI_Model {
         $this->db->or_like('lokasi', $search);
         return $this->db->get('event')->result_array();
     }
+
 }

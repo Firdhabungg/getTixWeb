@@ -53,9 +53,10 @@
                     <td><?= $e['nama_event']; ?></td>
                     <td><?= $e['kategori']; ?></td>
                     <td>
-                        <a href="<?= base_url(); ?>admin/detail/<?= $e['id_event']; ?>" class="badge badge-success">Detail</a>
+                        <a href="<?= base_url(); ?>admin/detail/<?= $e['id_event']; ?>" class="badge badge-info">Detail</a>
                         <a href="<?= base_url(); ?>admin/edit/<?= $e['id_event']; ?>" class="badge badge-warning">Edit</a>
                         <a href="<?= base_url(); ?>event/hapus/<?= $e['id_event']; ?>" class="badge badge-danger" data-toggle="modal" data-target="#modalHapus">Delete</a>
+                        <a href="<?= base_url(); ?>event/harga/<?= $e['id_event']; ?>" class="badge badge-success">Tambah Harga</a>
                     </td>
                     </tr>
                     <?php endforeach; ?>
