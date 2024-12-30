@@ -15,6 +15,7 @@ class Event extends CI_Controller {
             $data['event'] = $this->event->searchEvent();
             if(empty($data['event'])){
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Event tidak ditemukan</div>');
+                redirect('event');
             }
         }
         $email = $this->session->userdata('email');
@@ -27,7 +28,6 @@ class Event extends CI_Controller {
     }
     public function detail_event($id){
         $data['title'] = 'Detail Event';
-        $data['event'] = $this->event->getAllEvent();
         $email = $this->session->userdata('email'); //jika sudah login maka session dibuat
         if(!$email){
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda harus login terlebih dahulu!</div>');
@@ -46,6 +46,7 @@ class Event extends CI_Controller {
         if($event){
             $gambar = $event['gambar_event'];
             $path = './uploads/events/' . $gambar;
+            
             if(file_exists($path)){
                 unlink($path);
             }

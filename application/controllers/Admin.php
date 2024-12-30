@@ -43,6 +43,25 @@ class Admin extends CI_Controller {
         $this->load->view('admin/detailEvent', $data);
         $this->load->view('templates/footer');
     }
+    private function generateIdEvent() {
+        $this->db->select('id_event');
+        $this->db->order_by('id_event', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('event');
+        $lastId = $query->row_array();
+    
+        if ($lastId) {
+            // Ambil angka terakhir dari ID event
+            $lastNumber = (int) substr($lastId['id_event'], -4);
+            $newNumber = $lastNumber + 1;
+        } else {
+            // Jika belum ada data, mulai dari 1
+            $newNumber = 1;
+        }
+
+        // Format ID event menjadi EV0001, EV0002, dst.
+        return 'EV' . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+    }    
     public function tambah(){
         $data['title'] = 'Tambah Event';    
         $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim');
@@ -77,6 +96,7 @@ class Admin extends CI_Controller {
                 $gambarEvent = $gambarData['file_name'];
         
                 $eventData = [
+                    'id_event' => $this->generateIdEvent(),
                     'nama_event' => $this->input->post('nama_event', true),
                     'waktu_acara' => $this->input->post('waktu', true),
                     'lokasi' => $this->input->post('lokasi', true),

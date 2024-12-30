@@ -10,12 +10,11 @@
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">
                 <i class="fas fa-user-plus"></i>
             </a>
-            <table class="table table-hover table-bordered shadow-sm">
+            <table class="table table-hover table-bordered shadow-sm rounded-top">
                 <thead>
-                    <tr>
+                    <tr class="bg-primary text-white ">
                     <th scope="col">No</th>
                     <th scope="col">Menu</th>
-                    <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,10 +23,6 @@
                     <tr>
                     <th><?= $i++; ?></th>
                     <td><?= $m['menu']; ?></td>
-                    <td>
-                        <a href="<?= base_url(); ?>menu/edit/<?= $m['id']; ?>" class="badge badge-success" data-toggle="modal" data-target="#editMenu">edit</a>
-                        <a href="<?= base_url(); ?>menu/hapus/<?= $m['id']; ?>" class="badge badge-danger"  data-toggle="modal" data-target="#hapusMenu">hapus</a>
-                    </td>
                     <?php endforeach; ?>
                 </tbody>
                 </table>

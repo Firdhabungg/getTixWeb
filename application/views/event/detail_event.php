@@ -87,7 +87,7 @@
             <div class="level col col-6 col-md-3 shadow-lg py-4" style="border-radius: 12px;">
                 <h3><?= $ticket['jenis_ticket']; ?></h3>
                 <p>Harga: <?= number_format($ticket['harga'], 0, ',', '.'); ?></p>
-                <a href="<?= base_url('tiket/detail_tiket/'. $ticket['id_ticket']); ?>" class="btn btn-primary">Pilih</a>
+                <a href="<?= base_url('tiket/detail_tiket/'. $ticket['id_ticket']); ?>" class="btn btn-warning" >Beli</a>
             </div>
             <?php endforeach; ?>
         </div>
@@ -108,7 +108,25 @@
             </div>
         </div>
     </div>
-		<!-- end modal -->
+		<!-- end profile modal -->
+        <!-- modal konfirmasi pembayaran -->
+        <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Konfirmasi Pembelian??
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tidak</button>
+                    <a href="<?= base_url('tiket/detail_tiket/'. $ticket['id_ticket']); ?>" type="button" class="btn btn-primary px-4">Beli</a>
+                    <?php 
+                        $this->session->set_flashdata('konfirmasi', '<div class="alert alert-success" role="alert">Tiket berhasil dibeli</div>');
+                    ?>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- end modal konfirmasi pembayaran -->
     <footer class="bg-dark text-white text-center py-3">
         <img src="<?= base_url('assets/img/gettix.png'); ?>" alt="Gettix Logo" style="width: 200px; height: 70px;">
     </footer>

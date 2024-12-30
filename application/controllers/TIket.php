@@ -28,7 +28,7 @@ class Tiket extends CI_Controller {
         $data['user'] = $this->user->getUserBySession($email);
         $data['detail'] = $this->event->getEventById($id);
         $data['tickets'] = $this->tiket->getTiketByEvent($id);
-        
+    
         $data['tiket'] = $this->tiket->getTiketById($id);
         $this->load->view('tiket/detail_pembayaran', $data);
     }
@@ -82,8 +82,8 @@ class Tiket extends CI_Controller {
             redirect('auth');
         }
         $data['user'] = $this->user->getUserBySession($email);
-        $data['tiket'] = $this->tiket->getTiketWithEvent($id);
 
+        $data['tiket'] = $this->tiket->getTiketWithEvent($id);
         $this->load->view('tiket/qrcode', $data);
     }
     

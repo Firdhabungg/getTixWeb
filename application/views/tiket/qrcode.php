@@ -49,8 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold text-warning"><?= $tiket['nama_event']; ?></h5>
                         <div class="card-context">
-                            <small class="text-context1 fw-bold">Tanggal: <?= date('l, d F Y'); ?></small><br>
-                            <small class="text-context2 fw-bold">Waktu: <?= date('h:i'); ?> WIB</small>
+                            <small class="text-context1 fw-bold">Tanggal: <?= $tiket['waktu_acara']; ?></small><br>
                         </div>
                     </div>
                 </div>
@@ -66,7 +65,7 @@
                         <small class="text-primary"><?= $user['email']; ?></small>
                     </div>
                     <div class="button tutup mt-3">
-                        <a href="<?= base_url('event'); ?>" class="btn btn-info">Tutup</a>
+                        <a href="assets/img/gambar/qrcode.png" download="qrcode.png" class="btn btn-danger">Download QR Code</a>
                     </div>
                 </div>
             </div>

@@ -19,18 +19,18 @@ class User extends CI_Controller {
         $this->load->view('user/index', $data);
         $this->load->view('templates/footer');
     }
-    public function edit(){
-        $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Edit Profile';
-            $email = $this->session->userdata('email'); //mengambil data dari session
-            $data['user'] = $this->user->getUserBySession($email);
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('user/edit', $data);
-            $this->load->view('templates/footer');
-        }
-    }
+    // public function edit(){
+    //     $this->form_validation->set_rules('name', 'Name', 'required|trim');
+    //     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+    //     if ($this->form_validation->run() == false) {
+    //         $data['title'] = 'Edit Profile';
+    //         $email = $this->session->userdata('email'); //mengambil data dari session
+    //         $data['user'] = $this->user->getUserBySession($email);
+    //         $this->load->view('templates/header', $data);
+    //         $this->load->view('templates/sidebar', $data);
+    //         $this->load->view('templates/topbar', $data);
+    //         $this->load->view('user/edit', $data);
+    //         $this->load->view('templates/footer');
+    //     }
+    // }
 }

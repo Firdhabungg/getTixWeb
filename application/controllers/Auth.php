@@ -6,8 +6,7 @@ class Auth extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('User_model', 'user');
     }
-    public function index()
-    {
+    public function index(){
         if($this->session->userdata('email')){
             if($this->session->userdata('role_id') == 1){
                 redirect('admin');

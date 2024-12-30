@@ -40,6 +40,7 @@
 </nav>
 
 <div class="container mt-5">
+    <?= $this->session->flashdata('konfirmasi'); ?>
     <h2 class="mb-4">Riwayat</h2>
     <div class="card mb-3 shadow-lg riwayat">
         <div class="card-body d-flex flex-wrap align-items-left justify-content-between">

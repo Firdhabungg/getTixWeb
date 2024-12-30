@@ -110,11 +110,11 @@
 							<div class="col-4">
 								<div class="card h-100">
 									<a href="<?= base_url('event/detail_event/'. $e['id_event']); ?>" class="">
-										<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="card-img-top p-1 rounded bg-light" alt="<?= $nama ?>" />
+										<img src="<?= base_url('uploads/events/' . $gambar); ?>" class="img-fluid p-1 rounded bg-light" alt="<?= $nama ?>" />
 									</a>
 									<div class="card-body">
-										<h5 class="card-title"><?= $nama ?></h5>
-										<p class="card-text"><?= $deskripsi ?></p>
+										<p class="card-title fw-bold"><?= $nama ?></p>
+										<small class="card-text"><?= $deskripsi ?></small>
 									</div>
 									<div class="card-footer">
 										<a href="<?= base_url('event/detail_event/' . $e['id_event']); ?>">
@@ -164,7 +164,7 @@
 				<div class="col-md-3">
 					<i class="fas fa-envelope fa-2x text-primary"></i>
 					<h5 class="mt-3 text-light">Pembelian Selesai</h5>
-					<p class="text-light">E-Tiket telah dikirimkan ke email & akun event kamu</p>
+					<p class="text-light">E-Tiket ditampilkan dalam QR Code dan di-scan ketika check-in Event</p>
 				</div>
 			</div>
 		</div>
