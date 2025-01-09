@@ -45,5 +45,10 @@
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets'); ?>/js/sb-admin-2.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.bootstrap5.js"></script>
+    <script>new DataTable('#pagination');</script>
+
 </body>
 </html>

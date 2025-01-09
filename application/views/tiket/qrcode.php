@@ -65,7 +65,7 @@
                         <small class="text-primary"><?= $user['email']; ?></small>
                     </div>
                     <div class="button tutup mt-3">
-                        <a href="assets/img/gambar/qrcode.png" download="qrcode.png" class="btn btn-danger">Download QR Code</a>
+                        <a href="assets/img/gambar/qrcode.png" download="qrcode.png" class="btn btn-danger" type="png">Download QR Code</a>
                     </div>
                 </div>
             </div>

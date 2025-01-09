@@ -10,7 +10,7 @@
                 </div>
             </div>
             <caption>List event</caption>
-            <table class="table table-hover rounded-lg shadow-lg striped">
+            <table class="table table-hover rounded-lg shadow-lg striped" id="pagination">
                 <thead class="bg-gradient-primary text-white">
                     <tr>
                     <th scope="col">No</th>
